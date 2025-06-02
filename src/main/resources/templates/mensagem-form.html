@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Envio de Mensagem</title>
+</head>
+<body>
+<h2>Enviar Mensagem para a Fila RabbitMQ</h2>
+
+<form th:action="@{/mensagem}" th:object="${mensagemDto}" method="post">
+    <label for="texto">Mensagem:</label>
+    <input type="text" th:field="*{texto}" id="texto" required />
+    <button type="submit">Enviar</button>
+</form>
+
+<p th:if="${mensagem}" th:text="${mensagem}"></p>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>SafeZone</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>SafeZone</h1>
+    <nav>
+        <a th:href="@{/home}">Home</a> |
+        <a th:href="@{/perfil}">Perfil</a> |
+        <a th:href="@{/ocorrencias}">Ocorrências</a> |
+        <a th:href="@{/chat}">Chat com IA</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </nav>
+</header>
+<main>
+    <section layout:fragment="conteudo"></section>
+</main>
+<footer>
+    <p>&copy; 2025 SafeZone - Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>

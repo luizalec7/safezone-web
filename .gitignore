@@ -1,0 +1,49 @@
+# ========================
+# Ignorar IDEs e Builds
+# ========================
+
+# IntelliJ
+.idea/
+*.iml
+
+# VSCode
+.vscode/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Maven
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Arquivos temporários
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# Arquivos sensíveis
+src/main/resources/.env
+
+# Relatórios BFG
+safezone-web.git/
+safezone-web.git.bfg-report.*

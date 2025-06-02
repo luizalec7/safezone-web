@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout">
+<section>
+    <h2>Lista de Ocorrências</h2>
+    <a th:href="@{/nova-ocorrencia}"><button>Nova Ocorrência</button></a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ocorrencia : ${ocorrencias}">
+            <td th:text="${ocorrencia.titulo}">Título</td>
+            <td th:text="${ocorrencia.descricao}">Descrição</td>
+            <td th:text="${#dates.format(ocorrencia.data, 'dd/MM/yyyy')}">01/01/2025</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</html>

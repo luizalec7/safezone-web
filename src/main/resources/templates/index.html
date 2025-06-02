@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<section layout:fragment="conteudo">
+    <h2>Converse com a IA</h2>
+    <form th:action="@{/chat/perguntar}" method="post">
+        <label for="mensagem">Digite sua pergunta:</label><br>
+        <textarea id="mensagem" name="mensagem" rows="4" cols="50" required></textarea><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <div th:if="${resposta}">
+        <h3>Resposta da IA:</h3>
+        <p th:text="${resposta}"></p>
+    </div>
+</section>
+</html>
