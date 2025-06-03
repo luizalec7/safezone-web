@@ -1,38 +1,64 @@
 package com.safezone.web.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class Usuario {
+@Getter
+@Setter
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Nome é obrigatório")
     private String nome;
 
-    @Email(message = "Email inválido")
-    @NotBlank(message = "Email é obrigatório")
     @Column(unique = true)
     private String email;
 
-    @Size(min = 6, message = "A senha deve ter pelo menos 6 caracteres")
-    @NotBlank(message = "Senha é obrigatória")
     private String senha;
 
-    @Column(nullable = false)
-    private String perfil = "USER";
+    // UserDetails methods
 
-    private LocalDate dataCadastro = LocalDate.now();
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.emptyList(); // Sem roles por enquanto
+    }
+
+    @Override
+    public String getPassword() {
+        return senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

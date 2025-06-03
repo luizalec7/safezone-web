@@ -9,24 +9,29 @@ import java.security.Principal;
 @Controller
 public class HomeController {
 
-    @GetMapping({"/", "/home"})
-    public String home(Principal principal, Model model) {
-        if (principal != null) {
-            model.addAttribute("user", principal);
-        }
-        return "home";
+    @GetMapping("/")
+    public String redirecionarParaLogin() {
+        return "redirect:/login";
     }
 
     @GetMapping("/login")
-    public String login() {
-        return "login";
+    public String exibirLogin() {
+        return "login"; // templates/login.html
     }
 
-    @GetMapping("/perfil")
-    public String perfil(Principal principal, Model model) {
+    @GetMapping("/home")
+    public String exibirHome(Principal principal, Model model) {
         if (principal != null) {
             model.addAttribute("user", principal);
         }
-        return "perfil";
+        return "home"; // templates/home.html
+    }
+
+    @GetMapping("/perfil")
+    public String exibirPerfil(Principal principal, Model model) {
+        if (principal != null) {
+            model.addAttribute("user", principal);
+        }
+        return "profile"; // templates/profile.html
     }
 }

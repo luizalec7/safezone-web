@@ -1,13 +1,48 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
-<section layout:fragment="conteudo">
-    <h2>Bem-vindo ao SafeZone</h2>
-    <p>Este é o seu painel principal.</p>
-    <ul>
-        <li><a th:href="@{/perfil}">Ver Perfil</a></li>
-        <li><a th:href="@{/ocorrencias}">Visualizar Ocorrências</a></li>
-        <li><a th:href="@{/ocorrencias/nova}">Nova Ocorrência</a></li>
-        <li><a th:href="@{/chat}">Conversar com IA</a></li>
-    </ul>
-</section>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SafeZone - Menu Principal</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="home-body">
+<div class="menu-container">
+    <div class="logo">
+        <img th:src="@{/images/logo.png}" alt="SafeZone Logo">
+        <h1>SafeZone</h1>
+    </div>
+
+    <div class="menu-grid">
+        <a th:href="@{/map}" class="menu-item">
+            <img th:src="@{/images/icon-map.png}" alt="Map">
+            <span>Map</span>
+        </a>
+
+        <a th:href="@{/alerts}" class="menu-item">
+            <img th:src="@{/images/icon-alerts.png}" alt="Alerts">
+            <span>Alerts</span>
+        </a>
+
+        <a th:href="@{/safe-areas}" class="menu-item">
+            <img th:src="@{/images/icon-safe-areas.png}" alt="Safe Areas">
+            <span>Safe Areas</span>
+        </a>
+
+        <a th:href="@{/campaigns}" class="menu-item">
+            <img th:src="@{/images/icon-campaigns.png}" alt="Campaigns">
+            <span>Campaigns</span>
+        </a>
+
+        <a th:href="@{/profile}" class="menu-item">
+            <img th:src="@{/images/icon-profile.png}" alt="Profile">
+            <span>Profile</span>
+        </a>
+
+        <a th:href="@{/reports}" class="menu-item">
+            <img th:src="@{/images/icon-reports.png}" alt="Reports">
+            <span>Reports</span>
+        </a>
+    </div>
+</div>
+</body>
 </html>

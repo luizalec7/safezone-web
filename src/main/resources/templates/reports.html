@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SafeZone - Reports</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="reports-body">
+<div class="reports-header">
+    <h2>Submit a Report</h2>
+    <a href="/home" class="btn-voltar">Voltar</a>
+</div>
+<div class="reports-container">
+    <form th:action="@{/reports}" method="post">
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="">Select category</option>
+                <option value="Alert">Alert</option>
+                <option value="Safe Area">Safe Area</option>
+                <option value="Campaign">Campaign</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <button type="submit" class="btn-confirmar">Submit</button>
+    </form>
+</div>
+</body>
+</html>
