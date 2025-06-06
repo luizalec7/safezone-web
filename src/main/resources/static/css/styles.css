@@ -173,3 +173,27 @@ body.home-body {
     background-color: #2563eb;
     color: white;
 }
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group .input-icon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px; /* espaço para o ícone */
+    border-radius: 10px;
+    border: none;
+    font-size: 1em;
+    background-color: #e6e6e6;
+    color: #333;
+}

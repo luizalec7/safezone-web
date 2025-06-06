@@ -22,11 +22,11 @@ public class CampanhaService {
         return campanhaRepository.save(campanha);
     }
 
-    public Optional<CampanhaSolidaria> buscarPorId(Long id) {
+    public Optional<CampanhaSolidaria> buscarPorId(String id) {
         return campanhaRepository.findById(id);
     }
 
-    public void excluir(Long id) {
+    public void excluir(String id) {
         campanhaRepository.deleteById(id);
     }
 }

@@ -38,14 +38,14 @@ public class OcorrenciaController {
     }
 
     @GetMapping("/editar/{id}")
-    public String editar(@PathVariable Long id, Model model) {
+    public String editar(@PathVariable String id, Model model) {
         Ocorrencia ocorrencia = ocorrenciaService.buscarPorId(id).orElseThrow();
         model.addAttribute("ocorrencia", ocorrencia);
         return "ocorrencia/form";
     }
 
     @GetMapping("/excluir/{id}")
-    public String excluir(@PathVariable Long id) {
+    public String excluir(@PathVariable String id) {
         ocorrenciaService.excluir(id);
         return "redirect:/ocorrencias";
     }

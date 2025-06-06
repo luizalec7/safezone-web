@@ -1,27 +1,26 @@
 package com.safezone.web.model;
 
-import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
 
 import java.time.LocalDate;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Document(collection = "campanha")
 public class CampanhaSolidaria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @NotBlank(message = "Título é obrigatório")
     private String titulo;
 
-    @Column(columnDefinition = "CLOB")
     private String descricao;
 
     @NotNull(message = "Data de início é obrigatória")

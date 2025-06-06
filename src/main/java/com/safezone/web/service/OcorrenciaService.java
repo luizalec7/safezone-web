@@ -22,11 +22,11 @@ public class OcorrenciaService {
         return ocorrenciaRepository.save(ocorrencia);
     }
 
-    public Optional<Ocorrencia> buscarPorId(Long id) {
+    public Optional<Ocorrencia> buscarPorId(String id) {
         return ocorrenciaRepository.findById(id);
     }
 
-    public void excluir(Long id) {
+    public void excluir(String id) {
         ocorrenciaRepository.deleteById(id);
     }
 }

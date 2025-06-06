@@ -25,7 +25,7 @@ public class UsuarioService implements UserDetailsService {
         return usuarioRepository.save(usuario);
     }
 
-    public Optional<Usuario> buscarPorId(Long id) {
+    public Optional<Usuario> buscarPorId(String id) {
         return usuarioRepository.findById(id);
     }
 
@@ -33,7 +33,7 @@ public class UsuarioService implements UserDetailsService {
         return usuarioRepository.findByEmail(email);
     }
 
-    public void excluir(Long id) {
+    public void excluir(String id) {
         usuarioRepository.deleteById(id);
     }
 

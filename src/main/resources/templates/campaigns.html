@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SafeZone - Campaigns</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>SafeZone - Campanhas</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body class="campaigns-body">
 <div class="campaigns-header">
-    <h2>Campaigns</h2>
-    <a href="/home" class="btn-voltar">Voltar</a>
+    <h2>Campanhas</h2>
+    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
 </div>
 <div class="campaigns-container">
     <div th:each="campaign : ${campaigns}" class="campaign-card">
         <h3 th:text="${campaign.title}"></h3>
         <p th:text="${campaign.description}"></p>
-        <p><strong>Ends:</strong> <span th:text="${campaign.endDate}"></span></p>
+        <p><strong>Término:</strong> <span th:text="${campaign.endDate}"></span></p>
     </div>
 </div>
 </body>

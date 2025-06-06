@@ -4,26 +4,35 @@
     <meta charset="UTF-8">
     <title>Login - SafeZone</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
 </head>
 <body class="login-body">
 <div class="login-container">
-    <img src="/images/logo.png" alt="SafeZone Logo" class="logo">
 
-    <h1>SafeZone</h1>
+    <h1><img th:src="@{/image/logo.png}" class="logo" alt="Logo Icon"></h1>
 
     <form th:action="@{/login/manual}" method="post" class="login-form">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
+        <div class="input-group">
+            <img th:src="@{/image/icon-email.png}" class="input-icon" alt="Email Icon">
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+
+        <div class="input-group">
+            <img th:src="@{/image/icon-lock.png}" alt="Password Icon" class="input-icon">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+
         <button type="submit" class="btn-primary">Log In</button>
     </form>
 
     <p class="forgot-password">
-        <a href="#" th:href="@{/forgot-password}">Forgot password?</a>
+        <a th:href="@{/forgot-password}">Forgot password?</a>
     </p>
 
     <hr class="divider">
 
-    <a href="/oauth2/authorization/google" class="btn-google">Entrar com Google</a>
+    <a th:href="@{/oauth2/authorization/google}" class="btn-google">Entrar com Google</a>
 
     <p class="register-link">
         Não tem uma conta? <a th:href="@{/register}">Cadastre-se</a>

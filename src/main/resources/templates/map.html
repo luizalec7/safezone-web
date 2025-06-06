@@ -2,20 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SafeZone - Map</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>SafeZone - Mapa</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body class="map-body">
 <div class="map-header">
-    <h2>SafeZone Map</h2>
-    <a href="/home" class="btn-voltar">Voltar</a>
+    <h2>Mapa SafeZone</h2>
+    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
 </div>
 <div class="map-container">
-    <img src="/images/sample-map.png" alt="Mapa de Alertas e Áreas Seguras" class="map-img">
+    <img th:src="@{/images/sample-map.png}" alt="Mapa de Alertas e Áreas Seguras" class="map-img">
     <div class="map-legend">
-        <p><span class="icon-alert"></span> Alert</p>
-        <p><span class="icon-safe"></span> Safe Area</p>
-        <p><span class="icon-campaign"></span> Campaign</p>
+        <p><span class="icon-alert"></span> Alerta</p>
+        <p><span class="icon-safe"></span> Área Segura</p>
+        <p><span class="icon-campaign"></span> Campanha</p>
     </div>
 </div>
 </body>

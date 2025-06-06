@@ -2,18 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SafeZone - Profile</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>SafeZone - Perfil</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body class="profile-body">
 <div class="profile-header">
-    <h2>Your Profile</h2>
-    <a href="/home" class="btn-voltar">Voltar</a>
+    <h2>Seu Perfil</h2>
+    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
 </div>
 <div class="profile-container">
-    <p><strong>Name:</strong> <span th:text="${user.name}"></span></p>
+    <p><strong>Nome:</strong> <span th:text="${user.name}"></span></p>
     <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
-    <a href="/editar-senha" class="btn-confirmar">Alterar Senha</a>
+    <a th:href="@{/editar-senha}" class="btn-confirmar">Alterar Senha</a>
 </div>
 </body>
 </html>

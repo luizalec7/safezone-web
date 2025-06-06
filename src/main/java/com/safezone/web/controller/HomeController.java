@@ -16,7 +16,7 @@ public class HomeController {
 
     @GetMapping("/login")
     public String exibirLogin() {
-        return "login"; // templates/login.html
+        return "login";
     }
 
     @GetMapping("/home")
@@ -24,7 +24,7 @@ public class HomeController {
         if (principal != null) {
             model.addAttribute("user", principal);
         }
-        return "home"; // templates/home.html
+        return "home";
     }
 
     @GetMapping("/perfil")
@@ -32,6 +32,6 @@ public class HomeController {
         if (principal != null) {
             model.addAttribute("user", principal);
         }
-        return "profile"; // templates/profile.html
+        return "profile";
     }
 }

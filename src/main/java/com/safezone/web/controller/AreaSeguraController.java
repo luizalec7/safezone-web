@@ -38,14 +38,14 @@ public class AreaSeguraController {
     }
 
     @GetMapping("/editar/{id}")
-    public String editar(@PathVariable Long id, Model model) {
+    public String editar(@PathVariable String id, Model model) {
         AreaSegura areaSegura = areaSeguraService.buscarPorId(id).orElseThrow();
         model.addAttribute("areaSegura", areaSegura);
         return "areasegura/form";
     }
 
     @GetMapping("/excluir/{id}")
-    public String excluir(@PathVariable Long id) {
+    public String excluir(@PathVariable String id) {
         areaSeguraService.excluir(id);
         return "redirect:/areas-seguras";
     }

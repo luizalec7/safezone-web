@@ -1,19 +1,19 @@
 package com.safezone.web.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.validation.constraints.NotBlank;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Document(collection = "area_risco")
 public class AreaRisco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @NotBlank(message = "Nome é obrigatório")
     private String nome;
@@ -25,7 +25,7 @@ public class AreaRisco {
     private String estado;
 
     @NotBlank(message = "Nível de risco é obrigatório")
-    private String nivelRisco; // Ex: ALTO, MÉDIO, BAIXO
+    private String nivelRisco;
 
-    private String coordenadas; // GeoJSON simplificado ou texto
+    private String coordenadas;
 }

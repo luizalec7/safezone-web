@@ -1,7 +1,7 @@
 package com.safezone.web.repository;
 
 import com.safezone.web.model.AreaSegura;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface AreaSeguraRepository extends JpaRepository<AreaSegura, Long> {
+public interface AreaSeguraRepository extends MongoRepository<AreaSegura, String> {
 }

@@ -1,7 +1,7 @@
 package com.safezone.web.repository;
 
 import com.safezone.web.model.Ocorrencia;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long> {
+public interface OcorrenciaRepository extends MongoRepository<Ocorrencia, String> {
 }

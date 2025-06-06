@@ -38,14 +38,14 @@ public class CampanhaController {
     }
 
     @GetMapping("/editar/{id}")
-    public String editar(@PathVariable Long id, Model model) {
+    public String editar(@PathVariable String id, Model model) {
         CampanhaSolidaria campanha = campanhaService.buscarPorId(id).orElseThrow();
         model.addAttribute("campanha", campanha);
         return "campanha/form";
     }
 
     @GetMapping("/excluir/{id}")
-    public String excluir(@PathVariable Long id) {
+    public String excluir(@PathVariable String id) {
         campanhaService.excluir(id);
         return "redirect:/campanhas";
     }

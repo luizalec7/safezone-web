@@ -22,11 +22,11 @@ public class AreaSeguraService {
         return areaSeguraRepository.save(area);
     }
 
-    public Optional<AreaSegura> buscarPorId(Long id) {
+    public Optional<AreaSegura> buscarPorId(String id) {
         return areaSeguraRepository.findById(id);
     }
 
-    public void excluir(Long id) {
+    public void excluir(String id) {
         areaSeguraRepository.deleteById(id);
     }
 }
