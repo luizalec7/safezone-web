@@ -22,8 +22,9 @@ public class Usuario implements UserDetails {
 
     private String email;
 
-    private String senha;
+    private String senha; // Esta senha será criptografada.
 
+    // Implementação dos métodos do UserDetails
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.emptyList();
@@ -31,7 +32,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getPassword() {
-        return senha;
+        return senha; // A senha criptografada
     }
 
     @Override

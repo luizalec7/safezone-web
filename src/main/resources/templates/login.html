@@ -9,7 +9,6 @@
 </head>
 <body class="login-body">
 <div class="login-container">
-
     <h1><img th:src="@{/image/logo.png}" class="logo" alt="Logo Icon"></h1>
 
     <form th:action="@{/login/manual}" method="post" class="login-form">
@@ -25,10 +24,6 @@
 
         <button type="submit" class="btn-primary">Log In</button>
     </form>
-
-    <p class="forgot-password">
-        <a th:href="@{/forgot-password}">Forgot password?</a>
-    </p>
 
     <hr class="divider">
 
