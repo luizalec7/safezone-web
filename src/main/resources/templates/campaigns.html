@@ -1,21 +1,100 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SafeZone - Campanhas</title>
+    <title>Campanhas Solidárias</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+        .btn-campanha {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #2e4a7d;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .btn-campanha:hover {
+            background-color: #1c3b6e;
+        }
+
+        .campanha-container {
+            background-color: #1b3a57;
+            padding: 20px;
+            border-radius: 10px;
+            color: #dcdcdc;
+            margin-bottom: 20px;
+        }
+
+        .campanha-extra {
+            display: none;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #3b3b3b;
+        }
+    </style>
+    <script>
+        function toggleTexto(id) {
+            const extra = document.getElementById(id);
+            extra.style.display = extra.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
 </head>
-<body class="campaigns-body">
-<div class="campaigns-header">
-    <h2>Campanhas</h2>
-    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
-</div>
-<div class="campaigns-container">
-    <div th:each="campaign : ${campaigns}" class="campaign-card">
-        <h3 th:text="${campaign.title}"></h3>
-        <p th:text="${campaign.description}"></p>
-        <p><strong>Término:</strong> <span th:text="${campaign.endDate}"></span></p>
+<body class="safe-areas-body">
+<div class="safe-areas-container">
+    <div class="logo">
+        <img th:src="@{/image/logo.png}" alt="Logo SafeZone">
     </div>
+
+    <h1>Campanhas Solidárias</h1>
+
+    <div class="campanha-container">
+        <button class="btn-campanha" onclick="toggleTexto('texto1')">
+            Campanha de doação de alimentos e água
+        </button>
+        <div id="texto1" class="campanha-extra">
+            <p>Em janeiro, 3,8 toneladas de alimentos e 3 mil litros de água mineral foram doados ao Banco de
+                Alimentos de Guaíba, município com mais de 98 mil habitantes localizado na região metropolitana de Porto Alegre (RS).
+                A população mais vulnerável foi fortemente impactada pelas chuvas e ventos fortes que atingiram a cidade no período.
+                <br>As doações foram distribuídas para cerca de 40 mil moradores da Cohab, Santa Rita e Ypê, bairros que concentram a maior parte da população carente da cidade e que foram os mais impactados pela chuva.</p>
+        </div>
+    </div>
+
+    <div class="campanha-container">
+        <button class="btn-campanha" onclick="toggleTexto('texto2')">
+            Campanha de doação de agasalhos
+        </button>
+        <div id="texto2" class="campanha-extra">
+            <p>Em agosto, foram entregues os cobertores e agasalhos arrecadados durante a campanha
+                voltada para pessoas carentes que vivem em regiões onde necessitam se aquecer nas
+                épocas mais frias do ano. No total, foram arrecadados 572 cobertores, que foram
+                entregues para o Fundo Social de Solidariedade e para o Fundo Social da cidade de
+                Sorocaba fazerem a distribuição entre as famílias.</p>
+        </div>
+    </div>
+
+    <div class="campanha-container">
+        <button class="btn-campanha" onclick="toggleTexto('texto3')">
+            Campanha de doação de alimentos
+        </button>
+        <div id="texto3" class="campanha-extra">
+            <p>Com o valor arrecadado, a Campanha de Natal 2022 da FTB entregou mais de 1700 cestas
+                básicas para famílias carentes. Para isso, contou com o apoio de instituições que
+                viabilizaram as entregas e a seleção das famílias, foram elas: Fundo Social de
+                Sorocaba, Banco de Alimentos de Sorocaba, Cidade dos Velhinhos, Lar Creche André
+                Luiz e o Banco de Alimentos de São Bernardo do Campo.
+                <br>
+                Essas campanhas só se tornaram realidade graças à ajuda dos nossos colaboradores,
+                amigos, parceiros e apoiadores que contribuíram para que pudéssemos realizar ações
+                sociais na construção de uma sociedade mais justa para todos!</p>
+        </div>
+    </div>
+
+    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
 </div>
 </body>
 </html>

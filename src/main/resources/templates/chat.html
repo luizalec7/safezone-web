@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dúvidas</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="chat-body">
+<div class="chat-container">
+    <div class="logo">
+        <img th:src="@{/image/logo.png}" alt="SafeZone Logo">
+    </div>
+    <h1>Chat de Dúvidas</h1>
+
+    <form th:action="@{/chat/perguntar}" method="post">
+        <label for="mensagem">Faça sua pergunta sobre desastres ambientais, áreas de risco ou algo do tipo:</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Digite sua pergunta..." required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div class="response">
+        <h2>Resposta</h2>
+        <p th:text="${resposta}">Aguardando a resposta...</p>
+    </div>
+
+    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
+</div>
+</body>
+</html>

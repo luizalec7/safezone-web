@@ -13,16 +13,18 @@ public class ChatAiController {
 
     private final AiService aiService;
 
+    // Exibe a página de chat
     @GetMapping
     public String exibirChat() {
-        return "chat/index";
+        return "chat";  // Certifique-se de que 'chat.html' está em templates
     }
 
+    // Processa a pergunta e retorna a resposta
     @PostMapping("/perguntar")
     public String processarPergunta(@RequestParam("mensagem") String mensagem, Model model) {
         String resposta = aiService.perguntar(mensagem);
         model.addAttribute("mensagem", mensagem);
         model.addAttribute("resposta", resposta);
-        return "chat/index";
+        return "chat";  // Retorna à mesma página com a resposta
     }
 }

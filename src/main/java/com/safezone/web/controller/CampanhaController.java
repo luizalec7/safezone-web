@@ -17,35 +17,33 @@ public class CampanhaController {
     private final CampanhaService campanhaService;
 
     @GetMapping
-    public String listar(Model model) {
-        model.addAttribute("campanhas", campanhaService.listarTodas());
-        return "campanha/lista";
-    }
-
-    @GetMapping("/nova")
-    public String nova(Model model) {
+    public String listarCampanhas(Model model) {
         model.addAttribute("campanha", new CampanhaSolidaria());
-        return "campanha/form";
+        model.addAttribute("campanhas", campanhaService.listarTodas());
+        return "campaigns"; // Certifique-se de que o nome do HTML é campaigns.html
     }
 
     @PostMapping("/salvar")
-    public String salvar(@Valid @ModelAttribute CampanhaSolidaria campanha, BindingResult result) {
+    public String salvarCampanha(@Valid @ModelAttribute("campanha") CampanhaSolidaria campanha,
+                                 BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "campanha/form";
+            model.addAttribute("campanhas", campanhaService.listarTodas());
+            return "campaigns";
         }
         campanhaService.salvar(campanha);
         return "redirect:/campanhas";
     }
 
     @GetMapping("/editar/{id}")
-    public String editar(@PathVariable String id, Model model) {
-        CampanhaSolidaria campanha = campanhaService.buscarPorId(id).orElseThrow();
+    public String editarCampanha(@PathVariable String id, Model model) {
+        CampanhaSolidaria campanha = campanhaService.buscarPorId(id).orElseThrow(() -> new IllegalArgumentException("ID inválido: " + id));
         model.addAttribute("campanha", campanha);
-        return "campanha/form";
+        model.addAttribute("campanhas", campanhaService.listarTodas());
+        return "campaigns";
     }
 
     @GetMapping("/excluir/{id}")
-    public String excluir(@PathVariable String id) {
+    public String excluirCampanha(@PathVariable String id) {
         campanhaService.excluir(id);
         return "redirect:/campanhas";
     }

@@ -22,9 +22,10 @@ public class Usuario implements UserDetails {
 
     private String email;
 
-    private String senha; // Esta senha será criptografada.
+    private String senha;
 
-    // Implementação dos métodos do UserDetails
+    private String fotoUrl; // Caminho da imagem no servidor
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.emptyList();
@@ -32,7 +33,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getPassword() {
-        return senha; // A senha criptografada
+        return senha;
     }
 
     @Override

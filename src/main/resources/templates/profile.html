@@ -2,18 +2,45 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SafeZone - Perfil</title>
+    <title>Perfil do Usuário</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body class="profile-body">
-<div class="profile-header">
-    <h2>Seu Perfil</h2>
-    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
-</div>
 <div class="profile-container">
-    <p><strong>Nome:</strong> <span th:text="${user.name}"></span></p>
-    <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
-    <a th:href="@{/editar-senha}" class="btn-confirmar">Alterar Senha</a>
+    <!-- Logo -->
+    <div class="logo">
+        <img th:src="@{/image/logo.png}" alt="SafeZone Logo">
+    </div>
+
+    <h1>Perfil do Usuário</h1>
+
+    <!-- Foto de Perfil -->
+    <form th:action="@{/usuario/upload-foto}" method="post" enctype="multipart/form-data">
+        <div class="profile-photo">
+            <img th:src="${usuario.fotoUrl != null} ? @{${usuario.fotoUrl}} : @{/image/default-avatar.png}" alt="Foto de Perfil" class="avatar-preview" style="width: 120px; height: 120px; border-radius: 50%;">
+            <input type="file" name="foto" accept="image/*" required>
+            <button type="submit" class="btn-confirmar">Alterar Foto</button>
+        </div>
+    </form>
+
+    <!-- Email e Senha -->
+    <form th:action="@{/usuario/atualizar}" method="post" th:object="${usuario}">
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" th:field="*{senha}" required>
+        </div>
+
+        <button type="submit" class="btn-confirmar">Salvar Alterações</button>
+    </form>
+
+    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
 </div>
 </body>
 </html>

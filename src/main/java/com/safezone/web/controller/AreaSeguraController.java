@@ -19,19 +19,15 @@ public class AreaSeguraController {
     @GetMapping
     public String listar(Model model) {
         model.addAttribute("areas", areaSeguraService.listarTodas());
-        return "areasegura/lista";
-    }
-
-    @GetMapping("/nova")
-    public String nova(Model model) {
         model.addAttribute("areaSegura", new AreaSegura());
-        return "areasegura/form";
+        return "safe-areas";
     }
 
     @PostMapping("/salvar")
-    public String salvar(@Valid @ModelAttribute AreaSegura areaSegura, BindingResult result) {
+    public String salvar(@Valid @ModelAttribute AreaSegura areaSegura, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "areasegura/form";
+            model.addAttribute("areas", areaSeguraService.listarTodas());
+            return "safe-areas";
         }
         areaSeguraService.salvar(areaSegura);
         return "redirect:/areas-seguras";
@@ -41,7 +37,8 @@ public class AreaSeguraController {
     public String editar(@PathVariable String id, Model model) {
         AreaSegura areaSegura = areaSeguraService.buscarPorId(id).orElseThrow();
         model.addAttribute("areaSegura", areaSegura);
-        return "areasegura/form";
+        model.addAttribute("areas", areaSeguraService.listarTodas());
+        return "safe-areas";
     }
 
     @GetMapping("/excluir/{id}")

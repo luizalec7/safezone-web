@@ -2,30 +2,48 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SafeZone - Áreas Seguras</title>
+    <title>Áreas Seguras</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body class="safe-areas-body">
-<div class="safe-areas-header">
-    <h2>Áreas Seguras</h2>
-    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
-</div>
 <div class="safe-areas-container">
-    <form th:action="@{/safe-areas}" method="post">
+    <div class="logo">
+        <img th:src="@{/image/logo.png}" alt="Logo SafeZone">
+    </div>
+    <h1>Áreas Seguras</h1>
+
+    <form th:action="@{/areas-seguras/salvar}" method="post" th:object="${areaSegura}">
+        <input type="hidden" th:if="*{id} != null" th:field="*{id}" />
         <div class="form-group">
-            <label for="name">Nome do Local:</label>
-            <input type="text" id="name" name="name" required>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{nome}" required>
         </div>
         <div class="form-group">
-            <label for="location">Localização:</label>
-            <input type="text" id="location" name="location" required>
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" th:field="*{endereco}" required>
         </div>
         <div class="form-group">
-            <label for="description">Descrição:</label>
-            <textarea id="description" name="description" required></textarea>
+            <label for="latitude">Latitude:</label>
+            <input type="number" id="latitude" step="any" th:field="*{latitude}" required>
         </div>
-        <button type="submit" class="btn-confirmar">Adicionar Área Segura</button>
+        <div class="form-group">
+            <label for="longitude">Longitude:</label>
+            <input type="number" id="longitude" step="any" th:field="*{longitude}" required>
+        </div>
+        <button type="submit" class="btn-confirmar" th:text="${areaSegura.id} != null ? 'Atualizar' : 'Adicionar'"></button>
     </form>
+
+    <div th:each="area : ${areas}" class="alerta">
+        <p><strong>Nome:</strong> <span th:text="${area.nome}"></span></p>
+        <p><strong>Endereço:</strong> <span th:text="${area.endereco}"></span></p>
+        <p><strong>Latitude:</strong> <span th:text="${area.latitude}"></span></p>
+        <p><strong>Longitude:</strong> <span th:text="${area.longitude}"></span></p>
+        <a th:href="@{/areas-seguras/editar/{id}(id=${area.id})}" class="btn-confirmar">Editar</a>
+        <a th:href="@{/areas-seguras/excluir/{id}(id=${area.id})}" class="btn-voltar">Excluir</a>
+        <hr>
+    </div>
+
+    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
 </div>
 </body>
 </html>

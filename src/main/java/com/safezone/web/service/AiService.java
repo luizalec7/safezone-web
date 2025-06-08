@@ -15,6 +15,7 @@ public class AiService {
 
     private final ChatClient chatClient;
 
+    // Método para fazer perguntas e obter respostas usando o ChatClient da OpenAI
     public String perguntar(String pergunta) {
         ChatMessage mensagem = new ChatMessage(MessageType.USER, pergunta);
         Prompt prompt = new Prompt(List.of(mensagem));

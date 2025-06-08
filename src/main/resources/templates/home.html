@@ -2,44 +2,49 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SafeZone - Menu Principal</title>
+    <title>Menu Principal</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body class="home-body">
 <div class="menu-container">
+    <!-- Botão de Sair -->
+    <a th:href="@{/logout}" class="btn-logout">
+        <img th:src="@{/image/icon-logout.png}" alt="Sair Icon" class="logout-icon">
+        Sair
+    </a>
+
     <div class="logo">
-        <img th:src="@{/images/logo.png}" alt="SafeZone Logo">
-        <h1>SafeZone</h1>
+        <img th:src="@{/image/logo.png}" alt="SafeZone Logo">
     </div>
 
     <div class="menu-grid">
-        <a th:href="@{/map}" class="menu-item">
-            <img th:src="@{/images/icon-map.png}" alt="Mapa">
-            <span>Mapa</span>
+        <a th:href="@{/chat}" class="menu-item">
+            <img th:src="@{/image/icon-chat.png}" alt="Dúvidas">
+            <span>Dúvidas</span>
         </a>
 
         <a th:href="@{/alerts}" class="menu-item">
-            <img th:src="@{/images/icon-alerts.png}" alt="Alertas">
+            <img th:src="@{/image/icon-alerts.png}" alt="Alertas">
             <span>Alertas</span>
         </a>
 
-        <a th:href="@{/safe-areas}" class="menu-item">
-            <img th:src="@{/images/icon-safe-areas.png}" alt="Áreas Seguras">
+        <a th:href="@{/areas-seguras}" class="menu-item">
+            <img th:src="@{/image/icon-safe-areas.png}" alt="Áreas Seguras">
             <span>Áreas Seguras</span>
         </a>
 
-        <a th:href="@{/campaigns}" class="menu-item">
-            <img th:src="@{/images/icon-campaigns.png}" alt="Campanhas">
+        <a th:href="@{/campanhas}" class="menu-item">
+            <img th:src="@{/image/icon-campaigns.png}" alt="Campanhas">
             <span>Campanhas</span>
         </a>
 
-        <a th:href="@{/profile}" class="menu-item">
-            <img th:src="@{/images/icon-profile.png}" alt="Perfil">
+        <a th:href="@{/usuario/perfil}" class="menu-item">
+        <img th:src="@{/image/icon-profile.png}" alt="Perfil">
             <span>Perfil</span>
         </a>
 
         <a th:href="@{/reports}" class="menu-item">
-            <img th:src="@{/images/icon-reports.png}" alt="Relatórios">
+            <img th:src="@{/image/icon-reports.png}" alt="Relatórios">
             <span>Relatórios</span>
         </a>
     </div>

@@ -17,24 +17,33 @@ public class UsuarioService implements org.springframework.security.core.userdet
 
     private final UsuarioRepository usuarioRepository;
 
-    // Verifica se o usuário já existe no banco pelo email
     public Optional<Usuario> buscarPorEmail(String email) {
         return usuarioRepository.findByEmail(email);
     }
 
-    // Salva o usuário no banco de dados
+    public Optional<Usuario> buscarPorId(String id) {
+        return usuarioRepository.findById(id);
+    }
+
+    public Usuario atualizarUsuario(Usuario usuarioAtualizado) {
+        return usuarioRepository.save(usuarioAtualizado);
+    }
+
+    public void atualizarFotoPerfil(String id, String urlFoto) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        usuario.setFotoUrl(urlFoto);
+        usuarioRepository.save(usuario);
+    }
+
     public void salvar(Usuario usuario) {
         usuarioRepository.save(usuario);
     }
 
-    // Implementação do método loadUserByUsername para UserDetailsService
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Encontrar o usuário no banco de dados pelo email
         Usuario usuario = usuarioRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
-
-        // Retornar um objeto User com a senha criptografada e sem permissões adicionais (se necessário, ajuste as permissões)
         return new User(usuario.getEmail(), usuario.getSenha(), new ArrayList<>());
     }
 }

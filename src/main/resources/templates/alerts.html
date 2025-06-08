@@ -2,15 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>SafeZone - Alertas</title>
+    <title>Alertas</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body class="alerts-body">
-<div class="alerts-header">
-    <h2>Alertas</h2>
-    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
-</div>
 <div class="alerts-container">
+    <div class="logo">
+        <img th:src="@{/image/logo.png}" alt="SafeZone Logo">
+    </div>
+    <h1>Alertas</h1>
+
     <form th:action="@{/alerts}" method="post">
         <div class="form-group">
             <label for="type">Tipo de Alerta:</label>
@@ -26,6 +27,16 @@
         </div>
         <button type="submit" class="btn-confirmar">Adicionar Alerta</button>
     </form>
+
+    <!-- Exibição dos alertas cadastrados -->
+    <div th:each="alerta : ${alertas}" class="alerta">
+        <p><strong>Tipo:</strong> <span th:text="${alerta.type}"></span></p>
+        <p><strong>Descrição:</strong> <span th:text="${alerta.description}"></span></p>
+        <p><strong>Localização:</strong> <span th:text="${alerta.location}"></span></p>
+        <hr>
+    </div>
+
+    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
 </div>
 </body>
 </html>
