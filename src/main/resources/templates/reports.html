@@ -10,6 +10,7 @@
     <h2>Enviar Relatório</h2>
     <a th:href="@{/home}" class="btn-voltar">Voltar</a>
 </div>
+
 <div class="reports-container">
     <form th:action="@{/reports}" method="post">
         <div class="form-group">
@@ -21,16 +22,24 @@
                 <option value="Campaign">Campanha</option>
             </select>
         </div>
+
         <div class="form-group">
             <label for="location">Localização:</label>
             <input type="text" id="location" name="location" required>
         </div>
+
         <div class="form-group">
             <label for="description">Descrição:</label>
             <textarea id="description" name="description" required></textarea>
         </div>
+
         <button type="submit" class="btn-confirmar">Enviar</button>
     </form>
+
+    <!-- Botão para visualizar relatórios enviados -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a th:href="@{/reports/lista}" class="btn-confirmar" style="background-color: #28a745;">Ver Relatórios Enviados</a>
+    </div>
 </div>
 </body>
 </html>

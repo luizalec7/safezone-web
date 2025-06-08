@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatórios Enviados - SafeZone</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="reports-body">
+<div class="reports-header">
+    <h2>Relatórios Enviados</h2>
+    <a th:href="@{/home}" class="btn-voltar">Voltar</a>
+</div>
+
+<div class="reports-container">
+    <div th:if="${relatorios.isEmpty()}">
+        <p>Nenhum relatório enviado ainda.</p>
+    </div>
+    <div th:each="relatorio : ${relatorios}" class="relatorio-card">
+        <p><strong>Categoria:</strong> <span th:text="${relatorio.category}"></span></p>
+        <p><strong>Localização:</strong> <span th:text="${relatorio.location}"></span></p>
+        <p><strong>Descrição:</strong> <span th:text="${relatorio.description}"></span></p>
+        <hr>
+    </div>
+</div>
+</body>
+</html>

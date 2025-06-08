@@ -807,7 +807,8 @@ body.safe-areas-body {
     color: white;
 }
 
-profile-container .logo {
+/* Corrigido seletor .logo */
+.profile-container .logo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -819,11 +820,20 @@ profile-container .logo {
     height: auto;
 }
 
+/* Foto de perfil */
 .profile-photo {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 25px;
+}
+
+.profile-photo .avatar-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
 }
 
 .profile-photo input[type="file"] {
@@ -836,14 +846,6 @@ profile-container .logo {
     width: 80%;
     max-width: 250px;
     text-align: center;
-}
-
-.profile-photo input[type="file"] {
-    margin-top: 10px;
-    background: white;
-    color: #000;
-    padding: 0.5px;
-    border-radius: 5px;
 }
 
 .form-group {
@@ -889,4 +891,106 @@ profile-container .logo {
     margin-top: 20px;
     text-decoration: none;
     display: inline-block;
+}
+
+/* ======== Relatórios ======== */
+
+.reports-body {
+    background-color: #0c2d48;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.reports-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: #112e51;
+    color: white;
+}
+
+.reports-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.reports-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #112e51;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.reports-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    color: #000;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn-confirmar {
+    background-color: #337aff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.btn-confirmar:hover {
+    background-color: #1e5ed0;
+}
+
+.btn-voltar {
+    background-color: #337aff;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.btn-voltar:hover {
+    background-color: #1e5ed0;
 }

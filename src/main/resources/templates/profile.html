@@ -17,7 +17,7 @@
     <!-- Foto de Perfil -->
     <form th:action="@{/usuario/upload-foto}" method="post" enctype="multipart/form-data">
         <div class="profile-photo">
-            <img th:src="${usuario.fotoUrl != null} ? @{${usuario.fotoUrl}} : @{/image/default-avatar.png}" alt="Foto de Perfil" class="avatar-preview" style="width: 120px; height: 120px; border-radius: 50%;">
+            <img th:src="${usuario.fotoUrl != null} ? @{${usuario.fotoUrl}} : @{/image/default-avatar.png}" alt="Foto de Perfil">
             <input type="file" name="foto" accept="image/*" required>
             <button type="submit" class="btn-confirmar">Alterar Foto</button>
         </div>

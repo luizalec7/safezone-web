@@ -43,7 +43,7 @@ public class UsuarioController {
 
         Usuario usuario = usuarioOpt.get();
         usuario.setEmail(usuarioForm.getEmail());
-        usuario.setSenha(usuarioForm.getSenha()); // ⚠️ Recomendo criptografar aqui também se não estiver
+        usuario.setSenha(usuarioForm.getSenha()); // 🔒 Recomendado: aplicar criptografia aqui
 
         usuarioService.atualizarUsuario(usuario);
         return "redirect:/usuario/perfil";
@@ -54,12 +54,14 @@ public class UsuarioController {
         String usuarioId = (String) session.getAttribute("usuarioId");
         if (usuarioId == null || foto.isEmpty()) return "redirect:/login";
 
-        String pastaDestino = "src/main/resources/static/uploads/";
+        String pastaDestino = "uploads/";
         String nomeArquivo = System.currentTimeMillis() + "_" + foto.getOriginalFilename();
 
         try {
+            File diretorio = new File(pastaDestino);
+            if (!diretorio.exists()) diretorio.mkdirs(); // Garante que a pasta exista
+
             File destino = new File(pastaDestino + nomeArquivo);
-            destino.getParentFile().mkdirs();
             foto.transferTo(destino);
 
             String caminhoWeb = "/uploads/" + nomeArquivo;
