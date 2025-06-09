@@ -1,4 +1,4 @@
-
+o
 # 🌍 SafeZone - Sistema Integrado de Monitoramento de Desastres Naturais
 
 ![SafeZone Logo](./src/main/resources/static/image/logo.png)
@@ -27,6 +27,15 @@ O **SafeZone** é um sistema completo desenvolvido para monitoramento, alerta e 
 | **Outros**     | OAuth2 (Login com Google), RabbitMQ (Mensageria), AI (Spring AI), Docker, Render |
 
 ---
+
+LINK PARA VÍDEO DE DEMONSTRAÇÃO: https://www.youtube.com/watch?v=obY9iAPT-Gs
+
+
+### 🛠️ Arquitetura do projeto
+
+![arquitetura](https://github.com/user-attachments/assets/093de65a-3a53-4bd9-92f2-39aada62830b)
+
+
 
 ## 🚀 Como Rodar o Projeto Localmente
 
@@ -131,12 +140,16 @@ src
 ## ☁️ Implantação na Nuvem
 
 - O projeto pode ser facilmente implantado usando:
-    - Docker + Render (Web)
-    - MongoDB Atlas
-    - Azure 
+    MongoDB
+    Deploy na azure: https://safezone-app-linux.azurewebsites.net/login?logout
 
 ---
 
 ## 📜 Licença
 
 Este projeto é de uso acadêmico e não possui fins comerciais.
+
+---
+
+
+
